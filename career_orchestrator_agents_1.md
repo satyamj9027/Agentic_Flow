@@ -36,17 +36,7 @@ Maine sab update kar diya hai:
 
 ---
 
-```
-User Query + Profile
-        ↓
-Supervisor / Orchestrator Agent (Meta Router + Planner)
-        ↓
-   ┌────┴────┬──────────────┬──────────────┬──────────────┐
-   │         │              │              │              │
-Domain     Job Market    Education &   Location &     Synthesis
-Teams      Team          Training      Market         + QA Team
-           (Real-time)   Team          Analyst
-```
+
 
 #### **Detailed Agent List (Expanded & Complex)**
 
@@ -85,5 +75,43 @@ Teams      Team          Training      Market         + QA Team
 - **Citations & Confidence Scores** — Har answer mein sources + confidence
 - **Multi-modal Output** — Text + Salary charts + Career path diagrams + Comparison tables
 - **Evaluation Framework** — Built-in metrics for answer quality
+
+---
+**✅ O*NET Data Based Specialized Agents (Detailed)**
+
+O*NET data bahut rich hai — isme **skills, tasks, abilities, interests (RIASEC), knowledge, work context, related occupations, education requirements** sab kuch hai. 
+
+Isliye maine **6 powerful O*NET-centric agents** design kiye hain jo sirf O*NET data pe heavy focus karte hain. Yeh agents aapke bade multi-agent system mein alag-alag ya combined use ho sakte hain.
+
+### O*NET Based Agents List
+
+| # | Agent Name | Primary O*NET Data Used | Key Capabilities | Example Queries / Use Cases | Integration with Other Agents |
+|---|------------|--------------------------|------------------|-----------------------------|-------------------------------|
+| **1** | **O*NET Occupation Deep Profiler Agent** | Full occupation profile (tasks, knowledge, skills, abilities, work activities, work context, technology skills, tools used) | Kisi bhi occupation ka **complete detailed profile** deta hai | "Software Developer ka full O*NET profile batao"<br>"Electrician ke daily tasks aur tools kya hain?" | Supervisor → ye agent → Synthesizer |
+| **2** | **Skills, Knowledge & Abilities Matcher Agent** | Skills, Knowledge, Abilities domains + importance & level ratings | User ke paas jo skills hain unko match karta hai occupations se + gap batata hai | "Mere paas Python, SQL, Data Analysis hai — kaunsi jobs best match hongi?"<br>"Data Analyst se Data Scientist mein skill gap kya hai?" | Skills Gap Agent + Career Pathway Agent ke saath kaam karta hai |
+| **3** | **Interest Profiler & Career Fit Agent** (RIASEC Based) | Interests (Realistic, Investigative, Artistic, Social, Enterprising, Conventional) + O*NET Interest Profiler data | User ke interests ke hisaab se best fitting occupations suggest karta hai | "Mujhe problem solving aur research pasand hai — kaunsi careers fit hongi?"<br>"RIASEC test ke baad career suggestions do" | MyNextMove data + Personalization Agent ke saath |
+| **4** | **Task & Work Activity Breakdown Agent** | Tasks, Work Activities, Work Context (physical, social, environmental) | Occupation ke **day-to-day tasks**, tools, technology aur work environment detail mein batata hai | "Project Manager ke typical daily tasks kya hote hain?"<br>"Remote work wali jobs mein work context kaisa hota hai?" | Job Search Agent + Company Culture Agent ke saath |
+| **5** | **Related Occupations & Career Ladder Agent** | Related Occupations, Career Pathways, Education & Experience Requirements | Ek occupation se related/d similar jobs + career progression paths banata hai | "Marketing Manager se related aur better paying roles kaun si hain?"<br>"Nurse se Nurse Practitioner tak ka career path dikhao" | Career Pathway Planner + Transition Agent ke saath |
+| **6** | **Education, Training & Credential Requirements Agent** (O*NET Focused) | Education, Training, Experience, Credentials, Licensing requirements | Occupation ke liye **minimum education, training, certifications** aur alternative paths batata hai | "Data Scientist banne ke liye minimum degree kya chahiye?"<br>"Electrician banne ke liye apprenticeship + license details do" | Education & Training Team + College Scorecard Agent ke saath |
+
+
+
+### Bonus: O*NET Agents ka Flow Example
+
+```
+User: "Mujhe creative aur helping wali job chahiye jisme problem solving ho"
+    ↓
+Supervisor Agent
+    ↓
+Interest Profiler Agent (RIASEC match) 
+    + 
+Skills Matcher Agent
+    ↓
+O*NET Deep Profiler Agent (top 3 occupations ka full profile)
+    ↓
+Related Occupations Agent (career growth paths)
+    ↓
+Synthesizer + Visualizer Agent (final nice report + diagram)
+```
 
 ---
