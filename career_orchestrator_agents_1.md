@@ -411,13 +411,201 @@ Yeh raha har agent ka **realistic example** with proper JSON structure. Main ne 
 ```
 
 ---
+**✅ New Agent: Personal Career Match Agent**
 
-**Ready to use!**  
+### Agent Overview
 
-Ye JSON structures directly LangGraph nodes mein use kar sakte ho. Har agent ka input/output consistent aur structured hai.
+**Agent Name:** `personal_career_match_agent`
 
-Agar chaho toh main:
-- In sab agents ke **detailed system prompts** de sakta hoon
-- Ya kisi **ek specific agent** ka full LangGraph node code de sakta hoon
+**Role:**  
+Candidate ke **personal profile** (skills, interests, education, experience, preferences, personality) ko analyze karke uske liye **sabse best fitting careers** suggest karta hai. Yeh agent O*NET data + user profile dono ko combine karke **personalized career matching** karta hai.
 
-Batao kya chahiye ab?
+Yeh agent aapke system ka **core recommendation engine** ban sakta hai.
+
+---
+
+### Agent Details
+
+| Attribute              | Details |
+|------------------------|--------|
+| **Primary Data Sources** | O*NET Database (Skills, Interests, Abilities, Education), User Profile, MyNextMove |
+| **Key Matching Factors** | Skills Match, Interest Fit (RIASEC), Education Match, Experience Level, Work Context Preferences |
+| **Output Style**       | Ranked list with match scores + detailed explanation |
+| **Complexity Level**   | High (uses multiple O*NET domains + personalization) |
+| **Position in System** | Supervisor ke neeche call hota hai (Skills Matcher + Interest Profiler ke baad best results deta hai) |
+
+---
+
+### JSON Input Example
+
+```json
+{
+  "agent_name": "personal_career_match_agent",
+  "query": "Mere profile ke hisaab se best career options suggest karo",
+  "candidate_profile": {
+    "user_id": "user_789",
+    "full_name": "Rahul Sharma",
+    "current_role": "Junior Data Analyst",
+    "experience_years": 2.5,
+    "education": {
+      "degree": "Bachelor of Technology",
+      "field": "Computer Science",
+      "highest_qualification": "B.Tech"
+    },
+    "skills": [
+      "Python", "SQL", "Data Analysis", "Pandas", "Power BI", "Communication", "Problem Solving"
+    ],
+    "interests_ria_sec": {
+      "Realistic": 40,
+      "Investigative": 88,
+      "Artistic": 55,
+      "Social": 75,
+      "Enterprising": 60,
+      "Conventional": 65
+    },
+    "preferences": {
+      "preferred_locations": ["Remote", "Bangalore", "Hyderabad"],
+      "minimum_salary_usd": 85000,
+      "work_style": "Hybrid/Remote",
+      "work_life_balance_importance": "High",
+      "career_growth_priority": "High"
+    },
+    "personality_traits": ["Analytical", "Curious", "Collaborative"],
+    "career_goals": "Data Science ya AI related role mein jaana hai"
+  },
+  "top_n": 5,
+  "min_match_score": 70,
+  "include_skill_gap": true,
+  "request_id": "req_career_match_001"
+}
+```
+
+---
+
+### JSON Output Example (Rich & Production Ready)
+
+```json
+{
+  "agent_name": "personal_career_match_agent",
+  "user_id": "user_789",
+  "top_career_recommendations": [
+    {
+      "rank": 1,
+      "occupation": "Data Scientists",
+      "soc_code": "15-2051.00",
+      "match_score": 94,
+      "match_breakdown": {
+        "skills_match": 92,
+        "interest_fit": 95,
+        "education_match": 90,
+        "experience_level_match": 85,
+        "preference_alignment": 88
+      },
+      "why_this_fits": "Strong Investigative + Social interest alignment. Your Python, SQL, and analytical skills are highly relevant. Remote work possibility is high.",
+      "skill_gaps": [
+        {
+          "skill": "Machine Learning",
+          "current_level": "Intermediate",
+          "required_level": "Advanced",
+          "importance": 95
+        },
+        {
+          "skill": "Deep Learning",
+          "current_level": "Basic",
+          "required_level": "Intermediate",
+          "importance": 80
+        }
+      ],
+      "recommended_next_steps": [
+        "Complete a Machine Learning specialization course",
+        "Build 2-3 end-to-end ML projects",
+        "Learn PyTorch or TensorFlow"
+      ],
+      "salary_range_usd": {
+        "median": 108000,
+        "percentile_25": 85000,
+        "percentile_75": 140000
+      },
+      "remote_friendly": true
+    },
+    {
+      "rank": 2,
+      "occupation": "Business Intelligence Analysts",
+      "soc_code": "15-2051.01",
+      "match_score": 89,
+      "match_breakdown": {
+        "skills_match": 95,
+        "interest_fit": 82,
+        "education_match": 95,
+        "experience_level_match": 90,
+        "preference_alignment": 85
+      },
+      "why_this_fits": "Your current experience as Data Analyst is directly transferable. High demand and good work-life balance.",
+      "skill_gaps": [
+        {
+          "skill": "Advanced Data Visualization",
+          "current_level": "Intermediate",
+          "required_level": "Advanced"
+        }
+      ],
+      "recommended_next_steps": [
+        "Master Tableau or Power BI advanced features",
+        "Learn SQL optimization techniques"
+      ],
+      "salary_range_usd": {
+        "median": 95000,
+        "percentile_25": 75000,
+        "percentile_75": 120000
+      },
+      "remote_friendly": true
+    }
+  ],
+  "overall_summary": "Aapke profile ke hisaab se Data Science direction sabse strong fit hai. Aapke current skills already kaafi relevant hain, bas Machine Learning aur advanced analytics mein thoda upskilling chahiye.",
+  "confidence": 0.93,
+  "sources": ["O*NET Database 29.0", "BLS OEWS", "CareerOneStop"],
+  "timestamp": "2026-06-11T02:10:00Z",
+  "suggested_next_agents": [
+    "onet_occupation_deep_profiler",
+    "skills_knowledge_abilities_matcher",
+    "education_training_credential_requirements"
+  ]
+}
+```
+
+---
+
+### Key Features of This Agent
+
+| Feature                    | Description |
+|---------------------------|-------------|
+| **Multi-dimensional Matching** | Skills + Interests (RIASEC) + Education + Experience + Preferences |
+| **Explainability**        | Har recommendation ke saath `why_this_fits` + `match_breakdown` deta hai |
+| **Actionable Output**     | Skill gaps + Recommended next steps deta hai |
+| **Personalization**       | User ke preferences (remote, salary, work-life balance) ko consider karta hai |
+| **Integration Ready**     | `suggested_next_agents` field mein bataata hai ki ab kaun se agents call karne chahiye |
+
+---
+
+### Kaise Use Hoga System Mein?
+
+```
+Supervisor Agent
+    ↓
+Personal Career Match Agent (yeh agent)
+    ↓
+   ├── O*NET Deep Profiler Agent (top recommendations ke liye)
+   ├── Education & Training Agent
+   └── Job Search Agent (real openings ke liye)
+```
+
+---
+
+**Ab aapke paas yeh powerful agent ready hai.**
+
+Agar chaho toh main is agent ke liye:
+
+1. **Detailed System Prompt** (LLM ke liye)
+2. **LangGraph Node Code** structure
+3. **Matching Algorithm Logic** (kaise scores calculate honge)
+
+Batao — kya chahiye is agent ke liye next?
