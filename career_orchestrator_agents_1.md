@@ -586,26 +586,31 @@ Yeh agent aapke system ka **core recommendation engine** ban sakta hai.
 
 ---
 
-### Kaise Use Hoga System Mein?
+**Yeh raha aapke multi-agent career advisor system ke liye 20 Questions & Answers ka clean table format mein:**
 
-```
-Supervisor Agent
-    ↓
-Personal Career Match Agent (yeh agent)
-    ↓
-   ├── O*NET Deep Profiler Agent (top recommendations ke liye)
-   ├── Education & Training Agent
-   └── Job Search Agent (real openings ke liye)
-```
+| No. | User Query | Sample System Response |
+|-----|------------|------------------------|
+| 1 | What is the median salary for software developers in California? | BLS OEWS (2025) ke according California mein software developers ka median wage **$148,000** hai. O*NET skills: Python, Java, problem-solving. BLS OOH outlook "much faster than average". Current openings ke liye Indeed/USAJOBS check karo. |
+| 2 | Job outlook for registered nurses in the US? | BLS OOH (2024-2034) mein registered nurses ka growth **6%** (faster than average) with 194,500 new jobs. National median pay **$86,000**. O*NET mein patient care aur critical thinking high demand mein hain. |
+| 3 | What skills are required for a cybersecurity analyst according to O*NET? | O*NET Specialist ke mutabik top skills: information security, network monitoring, analytical thinking. Usually Bachelor’s + certifications (Security+, CISSP) chahiye. |
+| 4 | How to transition from teacher to software developer? | Career Path Agent suggest karta hai: 6-12 months mein Python/Java seekho (freeCodeCamp/Coursera). Teaching experience transferable hai. BLS data ke hisaab se median salary **$120k+**. |
+| 5 | Highest paying jobs with a bachelor’s degree in the US? | BLS + OOH data se top jobs: Software Developers, Computer & Information Systems Managers (**$165k+**), Financial Managers. O*NET mein analytical + leadership skills chahiye. |
+| 6 | Federal job opportunities for recent graduates on USAJOBS? | USAJOBS Agent ke hisaab se Pathways Internship aur Recent Graduates Program best hain. Entry-level GS-5/7 pay **$40k-$60k**. Veterans preference milta hai. |
+| 7 | What is the company culture like at Google according to Glassdoor? | Glassdoor reviews mein Google ka culture innovative aur collaborative hai (rating **4.3/5**). Pros: learning opportunities. Cons: high pressure aur long hours. |
+| 8 | Best apprenticeship programs for electricians in the US? | Apprenticeship.gov + CareerOneStop ke data se IBEW/NECA best hai. 4-5 saal ka paid program, ending salary **$40+/hr**. O*NET skills: electrical systems aur safety. |
+| 9 | Remote software developer jobs available right now? | Job Search Agent (Indeed + LinkedIn) ke mutabik currently 50,000+ remote openings hain. Median remote salary **$130k+**. Full-stack aur cloud skills high demand mein. |
+| 10 | Median salary for accountants in New York? | BLS OEWS New York: median **$92,000**. O*NET skills: accounting software aur analytical thinking. CPA certification se salary boost hota hai. |
+| 11 | Education and training needed to become a lawyer? | OOH + O*NET: Bachelor’s + 3-year JD + bar exam. Median pay **$135,000**. Analytical skills aur research important hain. |
+| 12 | Fastest growing occupations in the US according to BLS? | BLS OOH 2024-2034: Wind Turbine Service Technicians (60%+), Solar Installers, Nurse Practitioners, Data Scientists. O*NET skills alignment check kar sakte hain. |
+| 13 | Best cities for software engineers considering salary and quality of life? | BLS + Glassdoor combine: Austin (high salary + better COL), Seattle, Raleigh. California highest pay lekin living cost zyada. |
+| 14 | Job market and salary for marketing managers? | BLS: median **$156,000**. OOH growth 8%. O*NET skills: digital marketing aur leadership. Remote/hybrid options badh rahe hain. |
+| 15 | BLS wage data for heavy and tractor-trailer truck drivers? | BLS OEWS: national median **$51,000**. OOH outlook 4% growth. CDL training chahiye. Texas aur California mein higher pay. |
+| 16 | Typical career path for project managers? | Career Path Agent + O*NET: Coordinator → Project Manager (PMP) → Director. Median pay **$98,000+**. Leadership aur risk management skills important. |
+| 17 | Free or low-cost IT training programs from CareerOneStop? | CareerOneStop: Google Career Certificates, IBM SkillsBuild, local American Job Centers. Many free/paid with aid. O*NET aligned skills training. |
+| 18 | Salary comparison between software engineers and data scientists? | BLS: Software Developers **$120k**, Data Scientists **$108k** (national). O*NET skills overlap bahut (Python, ML). California mein dono $140k+. |
+| 19 | Job security in federal government jobs vs private sector? | USAJOBS + BLS: Federal jobs zyada stable hain with better benefits. Private sector (tech) higher pay lekin volatile. Government mein steady growth. |
+| 20 | Popular certifications for data analysts? | O*NET + CareerOneStop: Google Data Analytics Certificate, Microsoft Power BI, Tableau. Entry-level ke liye best. 3-6 months mein complete ho jaate hain. |
 
 ---
 
-**Ab aapke paas yeh powerful agent ready hai.**
 
-Agar chaho toh main is agent ke liye:
-
-1. **Detailed System Prompt** (LLM ke liye)
-2. **LangGraph Node Code** structure
-3. **Matching Algorithm Logic** (kaise scores calculate honge)
-
-Batao — kya chahiye is agent ke liye next?
