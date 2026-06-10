@@ -150,4 +150,128 @@ Yeh ek **multi-agent LangGraph system** hai jo **Indian users** ke liye **person
 - "Mera CIBIL score 650 hai — kaise improve karun?"
 
 ---
+---
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**✅ RBI se RAG Project ke liye kya-kuch nikal sakta hai**  
+(FinBharat AI ke liye focused – Personal Finance + Banking)
+
+RBI website (`rbi.org.in`) bahut rich data deta hai. Isko aapke **RAG knowledge base** mein daal sakte ho. Main ne sabse useful aur practical cheezein list ki hain:
+
+### RBI se Best Data Sources (RAG ke liye)
+
+| # | RBI Section / Data | Kya Data Milta Hai | RAG Project mein Kaise Use Hoga | Ingestion Difficulty | Recommendation |
+|---|--------------------|--------------------|----------------------------------|----------------------|----------------|
+| 1 | **Master Directions** | Complete guidelines on almost every banking topic | Loan rules, KYC, Deposits, Digital Banking, Priority Sector Lending | Medium | **Highly Recommended** |
+| 2 | **Interest Rates** | Repo Rate, Reverse Repo, Bank Rate, Marginal Standing Facility | Current interest rates, policy rate changes | Easy | **Must Have** |
+| 3 | **Circulars & Notifications** | Latest rules aur changes | New banking rules, loan guidelines, customer protection | Medium | **Highly Recommended** |
+| 4 | **Consumer Education** | Financial literacy material, dos and don’ts | Customer rights, grievance redressal, safe banking tips | Easy | **Must Have** |
+| 5 | **Banking Ombudsman** | Complaint filing rules, jurisdiction | Customer complaint related queries | Easy | Recommended |
+| 6 | **FAQs** | Banking, loans, deposits, digital banking ke common questions | Direct answers for user queries | Easy | **Must Have** |
+| 7 | **Monetary Policy Statements** | RBI ke policy decisions aur rationale | Interest rate changes ka background | Medium | Good to have |
+| 8 | **Reports** (Annual Report, Financial Stability Report) | Banking sector overview, risks | Macro level financial health | Hard | Optional |
+| 9 | **Statistics** | Deposits, Advances, NPAs, Credit Growth | Banking sector data analysis | Medium | Good for advanced queries |
+| 10 | **Guidelines on Loans** | Home Loan, Personal Loan, Education Loan guidelines | Loan related rules aur conditions | Medium | **Highly Recommended** |
+| 11 | **KYC & AML Guidelines** | Know Your Customer rules | Account opening, documentation requirements | Medium | Recommended |
+| 12 | **Digital Banking & UPI Guidelines** | UPI, IMPS, NEFT, RTGS rules | Digital payment related queries | Medium | Recommended |
+
+### Top 7 Most Useful RBI Sources (Priority Order)
+
+| Priority | Source | Why Important for RAG | Suggested Chunking Strategy |
+|---------|--------|-----------------------|-----------------------------|
+| 1 | **Master Directions** | Sabse structured aur complete guidelines | Section-wise (har Master Direction alag document) |
+| 2 | **Interest Rates Page** | Repo rate, lending rates | Table format mein extract karo |
+| 3 | **Consumer Education Section** | Simple language mein explanations | Direct use kar sakte ho |
+| 4 | **Circulars (Latest 2-3 years)** | Updated rules | Date-wise chunking |
+| 5 | **FAQs** | Ready-made answers | Direct ingestion |
+| 6 | **Banking Ombudsman Scheme** | Complaint process | Full document |
+| 7 | **Loan related Master Directions** | Home loan, personal loan rules | Specific sections extract karo |
+
+### Kaise Use Kar Sakte Ho (Practical Examples)
+
+| User Query Example | RBI Data se Answer |
+|--------------------|--------------------|
+| "Home loan ke liye kitna margin chahiye?" | Master Direction on Housing Finance |
+| "RBI ne repo rate kitna badhaya hai?" | Interest Rates page + Monetary Policy |
+| "Mera bank account band kar diya, kya karun?" | Consumer Education + Banking Ombudsman |
+| "Digital lending apps se loan lena safe hai?" | RBI guidelines on Digital Lending |
+| "PPF account mein maximum kitna deposit kar sakta hoon?" | Government schemes + RBI guidelines |
+| "Bank ne extra charge liya, complaint kaise karun?" | Banking Ombudsman Scheme |
+
+### Ingestion Tips (RAG ke liye)
+
+- **Master Directions** → Sabse important. Har ek alag PDF hota hai. Inko section-wise chunk karo.
+- **Interest Rates** → Table format mein structured data hai, isko easily parse kar sakte ho.
+- **Circulars** → Sirf latest 2-3 saal ke hi lo (purane outdated ho jaate hain).
+- **Consumer Education** → Simple language mein hai, isliye directly RAG mein accha perform karega.
+- **FAQs** → Bahut useful hain direct answers ke liye.
+
+### Recommended Approach
+
+1. **High Priority** (Pehle karo):
+   - Master Directions (especially Loans, Deposits, Digital Banking)
+   - Interest Rates
+   - Consumer Education
+   - FAQs
+
+2. **Medium Priority**:
+   - Circulars (last 2 years)
+   - Banking Ombudsman
+   - KYC Guidelines
+
+3. **Low Priority** (baad mein):
+   - Full Reports
+   - Heavy Statistical Data
+
+---
+
+**Batao kya chahiye?**
+
+1. **Master Directions** ki detailed list (kaun-kaun se important hain)
+2. **RBI data ingestion script** idea (kaise extract karna hai)
+3. Ya **RBI + dusre Indian sources** ka combined knowledge base structure
+
+Bolo kya chahiye!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
